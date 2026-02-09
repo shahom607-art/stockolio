@@ -12,7 +12,7 @@ const Header = () => {
                     <Image src="/assets/icons/logo.svg" alt="Stockolio logo" width={140} height={32} className = "h-8 w-auto cursor-pointer" />
                 </Link>
                 <nav className=" ">
-                    <NavItems />
+                    <NavItems hideOnMobile />
                 </nav>
                 <UserDropdown />
             </div>
