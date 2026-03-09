@@ -77,7 +77,7 @@ const SignIn = () => {
                 </Button>
 
                 <FooterLink
-                    text="Don't have an account?"
+                    text="Don't have an account? "
                     linkText="Sign Up"
                     href="/sign-up"
                 />

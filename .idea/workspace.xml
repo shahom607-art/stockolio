@@ -5,20 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/forms/CountrySelectField.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/forms/FooterLink.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/forms/InputField.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/components/forms/SelectField.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/types/global.d.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/TradingViewWidget.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/TradingViewWidget.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/dashboard-preview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/dashboard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +140,8 @@
       <workItem from="1771879270388" duration="608000" />
       <workItem from="1771895006493" duration="935000" />
       <workItem from="1771902411384" duration="12363000" />
-      <workItem from="1772789345565" duration="1415000" />
+      <workItem from="1772789345565" duration="3079000" />
+      <workItem from="1773049950579" duration="288000" />
     </task>
     <servers />
   </component>
