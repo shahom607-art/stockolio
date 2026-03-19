@@ -5,9 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/database/mongoose.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test-db-connection.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/inngest/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/auth.actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/better-auth/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inngest/client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inngest/functions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inngest/prompts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/nodemailer/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/nodemailer/templates.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserDropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoose.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongoose.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
@@ -149,11 +164,28 @@
       <workItem from="1773280796285" duration="590000" />
       <workItem from="1773296566624" duration="788000" />
       <workItem from="1773297392730" duration="572000" />
-      <workItem from="1773298228569" duration="904000" />
+      <workItem from="1773298228569" duration="6594000" />
+      <workItem from="1773363554222" duration="2109000" />
+      <workItem from="1773742537612" duration="4361000" />
+      <workItem from="1773826568279" duration="7864000" />
+      <workItem from="1773902336461" duration="350000" />
+      <workItem from="1773902826469" duration="3575000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/lib/nodemailer/templates.ts</url>
+          <line>90</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
