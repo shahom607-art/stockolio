@@ -5,26 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/api/inngest/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/actions/auth.actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/better-auth/auth.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/inngest/client.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/inngest/functions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/inngest/prompts.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/nodemailer/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/nodemailer/templates.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/middleware/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/models/watchlist.model.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/finnhub.actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/user.actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/watchlist.actions.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/components/UserDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserDropdown.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/mongoose.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongoose.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/inngest/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/inngest/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/inngest/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inngest/functions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nodemailer/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nodemailer/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/utils.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/utils.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +158,9 @@
       <workItem from="1773742537612" duration="4361000" />
       <workItem from="1773826568279" duration="7864000" />
       <workItem from="1773902336461" duration="350000" />
-      <workItem from="1773902826469" duration="3575000" />
+      <workItem from="1773902826469" duration="8015000" />
+      <workItem from="1774286515597" duration="9907000" />
+      <workItem from="1774463436975" duration="11054000" />
     </task>
     <servers />
   </component>
@@ -182,7 +173,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/nodemailer/templates.ts</url>
           <line>90</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
