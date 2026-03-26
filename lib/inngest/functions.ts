@@ -4,7 +4,7 @@ import {NEWS_SUMMARY_EMAIL_PROMPT, PERSONALIZED_WELCOME_EMAIL_PROMPT} from "@/li
 import {getAllUsersForNewsEmail} from "@/lib/actions/user.actions";
 import {getWatchlistSymbolsByEmail} from "@/lib/actions/watchlist.actions";
 import {getNews} from "@/lib/actions/finnhub.actions";
-import {formatDateToday} from "@/lib/utils";
+import {getFormattedTodayDate} from "@/lib/utils";
 
 type UserForNewsEmail = {
     id: string;
@@ -102,13 +102,15 @@ export const sendDailyNewsSummary = inngest.createFunction(
             }
         }
 
+        const dateToday = getFormattedTodayDate();
+
         // Step #4 Send emails
         await step.run('send-news-email', async () => {
             await Promise.all(
                 userNewsSummaries.map(async ({user, newsContent}) => {
                     if(!newsContent) return false;
 
-                    return await sendNewsSummaryEmail({email: user.email, date: formatDateToday, newsContent})
+                    return await sendNewsSummaryEmail({email: user.email, date: dateToday, newsContent})
                 })
             )
         })
