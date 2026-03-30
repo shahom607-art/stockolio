@@ -8,6 +8,26 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/api/inngest/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/actions/auth.actions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/better-auth/auth.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inngest/client.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inngest/functions.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/inngest/prompts.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/nodemailer/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/nodemailer/templates.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/middleware/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-up/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/(root)/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(root)/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserDropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/mongoose.ts" beforeDir="false" afterPath="$PROJECT_DIR$/database/mongoose.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +42,7 @@
     <setting file="file://$PROJECT_DIR$/node_modules/@types/node/path.d.ts" root0="SKIP_INSPECTION" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="ProjectErrors" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
@@ -41,7 +61,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Auth-UI&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Database&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;25.2.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;25.0.3&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
@@ -142,10 +162,35 @@
       <workItem from="1771902411384" duration="12363000" />
       <workItem from="1772789345565" duration="3079000" />
       <workItem from="1773049950579" duration="288000" />
+      <workItem from="1772789345565" duration="1415000" />
+      <workItem from="1773054729875" duration="83000" />
+      <workItem from="1773054835395" duration="521000" />
+      <workItem from="1773055412949" duration="687000" />
+      <workItem from="1773280796285" duration="590000" />
+      <workItem from="1773296566624" duration="788000" />
+      <workItem from="1773297392730" duration="572000" />
+      <workItem from="1773298228569" duration="6594000" />
+      <workItem from="1773363554222" duration="2109000" />
+      <workItem from="1773742537612" duration="4361000" />
+      <workItem from="1773826568279" duration="7864000" />
+      <workItem from="1773902336461" duration="350000" />
+      <workItem from="1773902826469" duration="3575000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/lib/nodemailer/templates.ts</url>
+          <line>90</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
