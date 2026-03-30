@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="" />
     <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/(auth)/sign-in/page.tsx" afterDir="false" />
@@ -61,7 +62,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Database&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;daily-summary&quot;,
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;25.2.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;25.0.3&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
@@ -174,7 +175,9 @@
       <workItem from="1773742537612" duration="4361000" />
       <workItem from="1773826568279" duration="7864000" />
       <workItem from="1773902336461" duration="350000" />
-      <workItem from="1773902826469" duration="3575000" />
+      <workItem from="1773902826469" duration="8015000" />
+      <workItem from="1774286515597" duration="9907000" />
+      <workItem from="1774463436975" duration="12786000" />
     </task>
     <servers />
   </component>
@@ -187,7 +190,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/nodemailer/templates.ts</url>
           <line>90</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
