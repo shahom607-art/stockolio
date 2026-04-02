@@ -4,7 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="" />
+    <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/components/SearchCommand.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hooks/useDebounce.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/Header.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/NavItems.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/NavItems.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/UserDropdown.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/UserDropdown.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/actions/finnhub.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/actions/finnhub.actions.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
