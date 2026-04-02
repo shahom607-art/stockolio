@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/actions/finnhub.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/actions/finnhub.actions.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/inngest/functions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/inngest/functions.ts" afterDir="false" />
-    </list>
+    <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,7 +152,7 @@
       <workItem from="1774286515597" duration="9907000" />
       <workItem from="1774463436975" duration="14695000" />
       <workItem from="1774845086567" duration="301000" />
-      <workItem from="1775108497047" duration="812000" />
+      <workItem from="1775108497047" duration="1120000" />
     </task>
     <servers />
   </component>
