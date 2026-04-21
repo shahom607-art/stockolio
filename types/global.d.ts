@@ -215,6 +215,19 @@ declare global {
         threshold: number;
         changePercent?: number;
     };
+
+    type ChatMessageData = {
+        role: "user" | "assistant";
+        content: string;
+    };
+
+    type ChatApiResponse = {
+        reply: string;
+        error?: never;
+    } | {
+        reply?: never;
+        error: string;
+    };
 }
 
 export {};
