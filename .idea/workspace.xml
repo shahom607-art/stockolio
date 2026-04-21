@@ -5,8 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b3607c3-9620-4d26-9f16-de5f980a19d2" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/(root)/stocks/[symbol]/loading.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/stocks/[symbol]/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/(root)/watchlist/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/WatchlistButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/components/WatchlistTable.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hooks/useDebounce.ts" beforeDir="false" afterPath="$PROJECT_DIR$/hooks/useDebounce.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/SearchCommand.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/SearchCommand.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/actions/finnhub.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/actions/finnhub.actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/actions/watchlist.actions.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/actions/watchlist.actions.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,6 +166,12 @@
       <workItem from="1774463436975" duration="14695000" />
       <workItem from="1774845086567" duration="301000" />
       <workItem from="1775108497047" duration="1120000" />
+      <workItem from="1775186381663" duration="126000" />
+      <workItem from="1775667252551" duration="789000" />
+      <workItem from="1775707088404" duration="16548000" />
+      <workItem from="1775916909079" duration="1879000" />
+      <workItem from="1775921117698" duration="4257000" />
+      <workItem from="1776141292850" duration="499000" />
     </task>
     <servers />
   </component>

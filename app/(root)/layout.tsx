@@ -1,4 +1,5 @@
 import Header from "@/components/Header";
+import ChatWidget from "@/components/ChatWidget";
 import {auth} from "@/lib/better-auth/auth";
 import {headers} from "next/headers";
 import {redirect} from "next/navigation";
@@ -21,6 +22,7 @@ const Layout = async ({ children }: {children : React.ReactNode}) => {
             <div className = "container py-10">
                 {children}
             </div>
+            <ChatWidget />
         </main>
     )
 }
