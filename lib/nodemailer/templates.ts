@@ -1108,3 +1108,21 @@ export const INACTIVE_USER_REMINDER_EMAIL_TEMPLATE = `<!DOCTYPE html>
     </table>
 </body>
 </html>`;
+
+export const RESET_PASSWORD_EMAIL_TEMPLATE = `<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Your Password</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #050505; font-family: sans-serif; color: #ffffff; text-align: center;">
+    <div style="padding: 40px 20px;">
+        <img src="https://ik.imagekit.io/lyreezkvq/logo.png" alt="Stockolio Logo" width="150" style="max-width: 100%; height: auto; margin-bottom: 20px;">
+        <h1 style="color: #FDD458;">Reset Your Password</h1>
+        <p style="color: #CCDADC; margin-bottom: 30px;">Click the button below to reset your Stockolio password.</p>
+        <a href="{{resetUrl}}" style="background-color: #E8BA40; color: #000000; padding: 16px 32px; border-radius: 8px; text-decoration: none; font-weight: bold;">Reset Password</a>
+        <p style="color: #6b7280; margin-top: 30px; font-size: 14px;">If you didn't request this, you can safely ignore this email.</p>
+    </div>
+</body>
+</html>`;

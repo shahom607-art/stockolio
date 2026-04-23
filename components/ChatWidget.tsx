@@ -8,7 +8,13 @@ import { getChatHistory } from "@/lib/actions/chat.actions";
 type Message = {
     role: "user" | "assistant";
     content: string;
+    isError?: boolean;
 };
+
+const AVAILABLE_MODELS = [
+    { id: "llama-3.3-70b-versatile", name: "Llama 3.3 70B" },
+    { id: "llama-3.1-8b-instant", name: "Llama 3.1 8B" },
+];
 
 const ChatWidget = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -16,6 +22,7 @@ const ChatWidget = () => {
     const [input, setInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [historyLoaded, setHistoryLoaded] = useState(false);
+    const [selectedModel, setSelectedModel] = useState(AVAILABLE_MODELS[0].id);
     const messagesEndRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
@@ -60,20 +67,38 @@ const ChatWidget = () => {
             const res = await fetch("/api/chat", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ message: trimmed }),
+                body: JSON.stringify({ message: trimmed, model: selectedModel }),
             });
 
             const data = await res.json();
-            const reply = data.reply || data.error || "Something went wrong.";
+            
+            if (!res.ok) {
+                if (data.code === "RATE_LIMIT") {
+                    setMessages((prev) => [
+                        ...prev,
+                        { role: "assistant", content: data.error || "Your daily limit is over, try it again tomorrow.", isError: true },
+                    ]);
+                } else {
+                    window.alert("The AI service is down for some time. Please try again later.");
+                    setMessages((prev) => [
+                        ...prev,
+                        { role: "assistant", content: "The AI service is down for some time. Please try again later.", isError: true },
+                    ]);
+                }
+                return;
+            }
+
+            const reply = data.reply || "Something went wrong.";
 
             setMessages((prev) => [
                 ...prev,
                 { role: "assistant", content: reply },
             ]);
         } catch {
+            window.alert("The AI service is down for some time. Please try again later.");
             setMessages((prev) => [
                 ...prev,
-                { role: "assistant", content: "Failed to get a response. Please try again." },
+                { role: "assistant", content: "Failed to get a response. Please try again.", isError: true },
             ]);
         } finally {
             setIsLoading(false);
@@ -115,9 +140,17 @@ const ChatWidget = () => {
                             <div className="h-8 w-8 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-500 flex items-center justify-center">
                                 <Bot className="h-4.5 w-4.5 text-gray-900" />
                             </div>
-                            <div>
+                            <div className="flex flex-col">
                                 <h3 className="text-sm font-semibold text-gray-100">Stockolio AI</h3>
-                                <p className="text-xs text-gray-500">Finance Assistant</p>
+                                <select 
+                                    value={selectedModel}
+                                    onChange={(e) => setSelectedModel(e.target.value)}
+                                    className="text-xs text-gray-400 bg-transparent border-none outline-none cursor-pointer p-0"
+                                >
+                                    {AVAILABLE_MODELS.map(m => (
+                                        <option key={m.id} value={m.id} className="bg-gray-800 text-gray-200">{m.name}</option>
+                                    ))}
+                                </select>
                             </div>
                         </div>
                         <Button
@@ -157,10 +190,12 @@ const ChatWidget = () => {
                                     </div>
                                 )}
                                 <div
-                                    className={`max-w-[75%] px-3.5 py-2.5 rounded-xl text-sm leading-relaxed ${
+                                    className={`max-w-[75%] px-3.5 py-2.5 rounded-xl text-sm leading-relaxed whitespace-pre-wrap ${
                                         msg.role === "user"
                                             ? "bg-yellow-500/15 text-gray-200 rounded-br-sm"
-                                            : "bg-gray-700 text-gray-300 rounded-bl-sm"
+                                            : msg.isError 
+                                                ? "bg-gray-700 text-red-500 rounded-bl-sm font-medium"
+                                                : "bg-gray-700 text-gray-300 rounded-bl-sm"
                                     }`}
                                 >
                                     {msg.content}

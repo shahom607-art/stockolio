@@ -71,63 +71,74 @@ export async function generateReply(
 ): Promise<string> {
   let currentMessages = [...messages];
 
-  // Try up to 3 tool call iterations
-  for (let i = 0; i < 3; i++) {
-    const completion = await groqClient.chat.completions.create({
-      model: model,
-      messages: currentMessages as any,
-      tools: TOOLS,
-      tool_choice: "auto",
-      temperature: 0.5,
-      max_tokens: 300,
-    });
+  try {
+    // Try up to 3 tool call iterations
+    for (let i = 0; i < 3; i++) {
+      const completion = await groqClient.chat.completions.create({
+        model: model,
+        messages: currentMessages as any,
+        tools: TOOLS,
+        tool_choice: "auto",
+        temperature: 0.5,
+        max_tokens: 300,
+      });
 
-    const responseMessage = completion.choices[0]?.message;
+      const responseMessage = completion.choices[0]?.message;
 
-    if (!responseMessage) {
-      throw new Error("No response received from Groq API");
-    }
-
-    if (responseMessage.tool_calls && responseMessage.tool_calls.length > 0) {
-      // Add assistant message with tool_calls to history
-      currentMessages.push(responseMessage as GroqChatMessage);
-
-      // Execute tools
-      for (const toolCall of responseMessage.tool_calls) {
-        if (toolCall.type === "function") {
-          const functionName = toolCall.function.name;
-          const args = JSON.parse(toolCall.function.arguments || "{}");
-          
-          let toolResult = "";
-
-          try {
-            if (functionName === "get_stock_quote") {
-              const data = await getStocksDetails(args.symbol);
-              toolResult = JSON.stringify(data);
-            } else if (functionName === "get_market_news") {
-              const data = await getNews(args.symbols);
-              // limit to 3 news articles to save context
-              toolResult = JSON.stringify(data.slice(0, 3));
-            } else {
-              toolResult = JSON.stringify({ error: "Unknown function" });
-            }
-          } catch (e: any) {
-            toolResult = JSON.stringify({ error: e.message });
-          }
-
-          currentMessages.push({
-            role: "tool",
-            tool_call_id: toolCall.id,
-            name: functionName,
-            content: toolResult,
-          });
-        }
+      if (!responseMessage) {
+        throw new Error("No response received from Groq API");
       }
-    } else {
-      // Completed, return standard content
-      return responseMessage.content?.trim() || "I couldn't generate a response.";
-    }
-  }
 
-  return "I'm having trouble getting the information right now. Please try again.";
+      if (responseMessage.tool_calls && responseMessage.tool_calls.length > 0) {
+        // Add assistant message with tool_calls to history
+        currentMessages.push(responseMessage as GroqChatMessage);
+
+        // Execute tools
+        for (const toolCall of responseMessage.tool_calls) {
+          if (toolCall.type === "function") {
+            const functionName = toolCall.function.name;
+            const args = JSON.parse(toolCall.function.arguments || "{}");
+            
+            let toolResult = "";
+
+            try {
+              if (functionName === "get_stock_quote") {
+                const data = await getStocksDetails(args.symbol);
+                toolResult = JSON.stringify(data);
+              } else if (functionName === "get_market_news") {
+                const data = await getNews(args.symbols);
+                // limit to 3 news articles to save context
+                toolResult = JSON.stringify(data.slice(0, 3));
+              } else {
+                toolResult = JSON.stringify({ error: "Unknown function" });
+              }
+            } catch (e: any) {
+              toolResult = JSON.stringify({ error: e.message });
+            }
+
+            currentMessages.push({
+              role: "tool",
+              tool_call_id: toolCall.id,
+              name: functionName,
+              content: toolResult,
+            });
+          }
+        }
+      } else {
+        // Completed, return standard content
+        let finalContent = responseMessage.content?.trim() || "I couldn't generate a response.";
+        if (completion.choices[0]?.finish_reason === "length") {
+          finalContent += "\n\n[Warning: The response was cut off because it was too long. You can prompt me to continue.]";
+        }
+        return finalContent;
+      }
+    }
+
+    return "I'm having trouble getting the information right now. Please try again.";
+  } catch (error: any) {
+    if (error.status === 429 || error?.error?.error?.message?.toLowerCase().includes('rate limit')) {
+        throw new Error("RATE_LIMIT");
+    }
+    throw new Error("API_ERROR");
+  }
 }

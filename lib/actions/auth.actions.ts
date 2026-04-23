@@ -46,3 +46,31 @@ export const signOut = async () => {
         return {success: false, error: 'Sign Out Failed'}
     }
 }
+
+export const forgotPassword = async (email: string) => {
+    try {
+        const baseUrl = process.env.BETTER_AUTH_URL || 'http://localhost:3000';
+        const response = await auth.api.requestPasswordReset({ 
+            body: { email, redirectTo: `${baseUrl}/reset-password` },
+            headers: await headers()
+        });
+        return { success: true, data: response };
+    } catch (e) {
+        console.log('Forgot Password Failed', e);
+        return { success: false, error: 'Forgot Password Failed' };
+    }
+};
+
+export const resetPassword = async (password: string, token: string) => {
+    try {
+        const response = await auth.api.resetPassword({ 
+            body: { newPassword: password }, 
+            query: { token },
+            headers: await headers()
+        });
+        return { success: true, data: response };
+    } catch (e) {
+        console.log('Reset Password Failed', e);
+        return { success: false, error: 'Reset Password Failed' };
+    }
+};

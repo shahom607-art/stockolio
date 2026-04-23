@@ -52,7 +52,7 @@ export async function processChatMessage(message: string, model: string = "llama
             })),
         ];
 
-        const reply = await generateReply(contextMessages);
+        const reply = await generateReply(contextMessages, model);
 
         await new Chat({
             userId,
@@ -61,9 +61,12 @@ export async function processChatMessage(message: string, model: string = "llama
         }).save();
 
         return reply;
-    } catch (error) {
+    } catch (error: any) {
         console.error("Chat processing error:", error);
-        return "Sorry, something went wrong. Please try again later.";
+        if (error.message === "RATE_LIMIT") {
+            throw new Error("RATE_LIMIT");
+        }
+        throw new Error("API_ERROR");
     }
 }
 

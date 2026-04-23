@@ -18,6 +18,7 @@ export async function POST(request: NextRequest) {
 
         const body = await request.json();
         const message = typeof body?.message === "string" ? body.message.trim() : "";
+        const model = typeof body?.model === "string" ? body.model : "llama-3.3-70b-versatile";
 
         if (!message) {
             return NextResponse.json(
@@ -26,13 +27,16 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        const reply = await processChatMessage(message);
+        const reply = await processChatMessage(message, model);
 
         return NextResponse.json({ reply });
-    } catch (error) {
+    } catch (error: any) {
         console.error("Chat API error:", error);
+        if (error?.message === "RATE_LIMIT") {
+             return NextResponse.json({ error: "Your daily limit is over, try it again tomorrow.", code: "RATE_LIMIT" }, { status: 429 });
+        }
         return NextResponse.json(
-            { error: "Internal server error" },
+            { error: "The AI service is down for some time. Please try again later.", code: "API_ERROR" },
             { status: 500 }
         );
     }
