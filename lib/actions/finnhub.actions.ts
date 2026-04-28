@@ -49,7 +49,7 @@ export const getStocksDetails = cache(async (symbol: string) => {
         const financialsData = financials as FinancialsData;
 
         if (!quoteData?.c || !profileData?.name) {
-            throw new Error('Invalid stock data received from API');
+            return null;
         }
 
         const changePercent = quoteData.dp || 0;
@@ -67,9 +67,11 @@ export const getStocksDetails = cache(async (symbol: string) => {
                 profileData?.marketCapitalization || 0
             ),
         };
-    } catch (error) {
-        console.error(`Error fetching details for ${cleanSymbol}:`, error);
-        throw new Error('Failed to fetch stock details');
+    } catch (error: any) {
+        if (!error.message?.includes('403')) {
+            console.error(`Error fetching details for ${cleanSymbol}:`, error);
+        }
+        return null;
     }
 });
 
@@ -167,7 +169,7 @@ export async function getNews(symbols?: string[]): Promise<MarketNewsArticle[]> 
             .map((a, idx) => formatArticle(a, false, undefined, idx));
     } catch (err) {
         console.error('getNews error:', err);
-        throw new Error('Failed to fetch news');
+        return [];
     }
 }
 

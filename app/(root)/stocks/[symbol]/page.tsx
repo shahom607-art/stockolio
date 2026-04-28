@@ -11,7 +11,7 @@ import {
     COMPANY_PROFILE_WIDGET_CONFIG,
     COMPANY_FINANCIALS_WIDGET_CONFIG,
 } from '@/lib/constants';
-import { notFound } from 'next/navigation';
+
 
 export default async function StockDetails({ params }: StockDetailsPageProps) {
     const { symbol } = await params;
@@ -24,7 +24,22 @@ export default async function StockDetails({ params }: StockDetailsPageProps) {
         (item: WatchlistItem) => item.symbol === symbol.toUpperCase()
     );
 
-    if (!stockData) notFound();
+    if (!stockData) {
+        return (
+            <div className='flex flex-col items-center justify-center min-h-[70vh] text-center px-4'>
+
+                <h1 className='text-3xl md:text-4xl font-bold text-gray-100 mb-4'>
+                    Data Unavailable
+                </h1>
+                <p className='text-gray-400 max-w-lg mb-8 text-lg'>
+                    We couldn't fetch market data for <span className="font-semibold text-yellow-500">{symbol}</span>. This is typically because it's an international stock outside the US market, which isn't supported on our free data tier.
+                </p>
+                <a href="/" className='px-8 py-3 bg-yellow-500 hover:bg-yellow-400 text-gray-900 font-semibold rounded-xl transition-all hover:scale-105 active:scale-95 shadow-lg shadow-yellow-500/20'>
+                    Back to Dashboard
+                </a>
+            </div>
+        );
+    }
 
     return (
         <div className='flex min-h-screen p-4 md:p-6 lg:p-8'>
