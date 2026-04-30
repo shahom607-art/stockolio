@@ -13,8 +13,10 @@ type UserForNewsEmail = {
 };
 
 export const sendSignUpEmail = inngest.createFunction(
-    { id: 'sign-up-email' },
-    { event: 'app/user.created' },
+    { 
+        id: 'sign-up-email', 
+        triggers: [{ event: 'app/user.created' }] 
+    },
     async ({ event, step }) => {
         const userProfile = `
             - Country: ${event.data.country}
@@ -48,8 +50,10 @@ export const sendSignUpEmail = inngest.createFunction(
 )
 
 export const sendDailyNewsSummary = inngest.createFunction(
-    { id: 'daily-news-summary' },
-    [{ event: 'app/send.daily.news' }, { cron: '0 12 * * *' }],
+    { 
+        id: 'daily-news-summary', 
+        triggers: [{ event: 'app/send.daily.news' }, { cron: '0 12 * * *' }] 
+    },
     async ({ step }) => {
         // Step #1 Get all users for news delivery
         const users = await step.run('get-all-users', getAllUsersForNewsEmail)
