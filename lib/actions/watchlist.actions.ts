@@ -6,7 +6,7 @@ import { revalidatePath } from 'next/cache';
 import { auth } from '../better-auth/auth';
 import { headers } from 'next/headers';
 import { redirect } from 'next/navigation';
-import {getStocksDetails} from "@/lib/actions/finnhub.actions";
+import { getStocksDetails } from "@/lib/actions/finnhub.actions";
 
 
 export async function getWatchlistSymbolsByEmail(email: string): Promise<string[]> {

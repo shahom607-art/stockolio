@@ -48,7 +48,7 @@ export const addPortfolioItem = async (symbol: string, quantity: number) => {
             existingItem.quantity = totalQty;
             existingItem.avgBuyPrice = avgBuyPrice;
             existingItem.updatedAt = new Date();
-            
+
             await existingItem.save();
         } else {
             const newItem = new Portfolio({
@@ -73,11 +73,11 @@ export const addPortfolioItem = async (symbol: string, quantity: number) => {
 export const getPortfolioWithData = async () => {
     try {
         await connectToDatabase();
-        
+
         const session = await auth.api.getSession({
             headers: await headers(),
         });
-        
+
         if (!session?.user) redirect('/sign-in');
 
         const portfolio = await Portfolio.find({ userId: session.user.id }).sort({ updatedAt: -1 }).lean();
@@ -153,14 +153,14 @@ export const sellPortfolioItem = async (symbol: string, sellQty: number) => {
         }
 
         const currentPrice = stockData.currentPrice;
-        
+
         const profitPerShare = currentPrice - existingItem.avgBuyPrice;
         const totalRealizedProfit = profitPerShare * sellQty;
 
         existingItem.quantity -= sellQty;
         existingItem.realizedProfit = (existingItem.realizedProfit || 0) + totalRealizedProfit;
         existingItem.updatedAt = new Date();
-        
+
         await existingItem.save();
 
         revalidatePath('/game');
