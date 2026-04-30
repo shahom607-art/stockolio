@@ -20,12 +20,16 @@ const ForgotPassword = () => {
         formState: { errors, isSubmitting },
     } = useForm<ForgotPasswordFormData>({
         defaultValues: { email: '' },
-        mode: 'onBlur'
+        mode: 'onChange'
     });
 
     const onSubmit = async (data: ForgotPasswordFormData) => {
+        toast.info('Requesting reset link...', { description: `Sending to ${data.email}` });
         try {
+            console.log('Submitting email:', data.email);
             const result = await forgotPassword(data.email);
+            console.log('Action Result:', result);
+            
             if (result.success) {
                 setIsSuccess(true);
                 toast.success('Reset link sent!', {
@@ -36,10 +40,10 @@ const ForgotPassword = () => {
                     description: result.error || 'Something went wrong'
                 });
             }
-        } catch (e) {
-            console.error(e);
-            toast.error('Error', {
-                description: 'Failed to request password reset'
+        } catch (e: any) {
+            console.error('Submission Error:', e);
+            toast.error('Critical Error', {
+                description: e.message || 'The server action failed to respond.'
             });
         }
     }
@@ -61,6 +65,13 @@ const ForgotPassword = () => {
         );
     }
 
+    const onError = (errors: any) => {
+        console.log('Validation Errors:', errors);
+        toast.error('Validation Error', {
+            description: 'Please check your email address and try again.'
+        });
+    };
+
     return (
         <>
             <h1 className="form-title">Reset Password</h1>
@@ -68,7 +79,7 @@ const ForgotPassword = () => {
                 Enter your email address and we'll send you a link to reset your password.
             </p>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
+            <form onSubmit={handleSubmit(onSubmit, onError)} className="space-y-5">
                 <InputField
                     name="email"
                     label="Email"
@@ -78,7 +89,7 @@ const ForgotPassword = () => {
                     validation={{
                         required: 'Email is required',
                         pattern: {
-                            value: /^\w+@\w+\.\w+$/,
+                            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
                             message: 'Enter a valid email address'
                         }
                     }}

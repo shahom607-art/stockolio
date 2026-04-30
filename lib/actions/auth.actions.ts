@@ -49,10 +49,14 @@ export const signOut = async () => {
 
 export const forgotPassword = async (email: string) => {
     try {
-        const baseUrl = process.env.BETTER_AUTH_URL || 'http://localhost:3000';
+        const headersList = await headers();
+        const host = headersList.get('host');
+        const protocol = host?.includes('localhost') ? 'http' : 'https';
+        const baseUrl = host ? `${protocol}://${host}` : (process.env.BETTER_AUTH_URL || 'http://localhost:3000');
+        
         const response = await auth.api.requestPasswordReset({ 
             body: { email, redirectTo: `${baseUrl}/reset-password` },
-            headers: await headers()
+            headers: headersList
         });
         return { success: true, data: response };
     } catch (e) {

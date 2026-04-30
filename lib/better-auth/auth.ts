@@ -26,7 +26,7 @@ export const getAuth = async () => {
             maxPasswordLength: 128,
             autoSignIn: true,
             sendResetPassword: async ({ user, url, token }) => {
-                const tokenStr = token || url.split('/reset-password/')[1].split('?')[0];
+                const tokenStr = token || (url.includes('token=') ? url.split('token=')[1].split('&')[0] : url.split('/').pop());
                 const origin = new URL(url).origin;
                 const resetLink = `${origin}/reset-password?token=${tokenStr}`;
                 await sendResetPasswordEmail({ email: user.email, url: resetLink });
