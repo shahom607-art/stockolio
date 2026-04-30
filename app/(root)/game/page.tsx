@@ -3,6 +3,8 @@ import { getPortfolioWithData } from '@/lib/actions/portfolio.actions';
 import AddPortfolioItemForm from '@/components/forms/AddPortfolioItemForm';
 import PortfolioTable from '@/components/PortfolioTable';
 
+export const dynamic = 'force-dynamic';
+
 export const metadata: Metadata = {
     title: 'Portfolio Game | Stockolio',
     description: 'Portfolio game to practice trading strategies.',
