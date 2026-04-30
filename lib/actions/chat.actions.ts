@@ -44,7 +44,7 @@ export async function processChatMessage(message: string, model: string = "llama
             .limit(MAX_CONTEXT_MESSAGES)
             .lean();
 
-        const contextMessages: { role: "system" | "user" | "assistant"; content: string }[] = [
+        const contextMessages: any[] = [
             FINANCE_SYSTEM_PROMPT,
             ...recentMessages.reverse().map((msg) => ({
                 role: msg.role as "user" | "assistant",

@@ -18,12 +18,13 @@ export default function SearchCommand({
                                           renderAs = "button",
                                           label = "Add stock",
                                           initialStocks,
-                                      }: SearchCommandProps) {
+                                          initialWatchlistSymbols = [],
+                                      }: SearchCommandProps & { initialWatchlistSymbols?: string[] }) {
     const [open, setOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [loading, setLoading] = useState(false);
-    const [stocks, setStocks] =
-        useState<StockWithWatchlistStatus[]>(initialStocks);
+    const [stocks, setStocks] = useState<StockWithWatchlistStatus[]>(initialStocks);
+    const [watchlistSet, setWatchlistSet] = useState<Set<string>>(new Set(initialWatchlistSymbols));
 
     const isSearchMode = !!searchTerm.trim();
     const displayStocks = stocks?.slice(0, 10);
@@ -68,13 +69,12 @@ export default function SearchCommand({
     };
 
     const handleWatchlistChange = (symbol: string, isAdded: boolean) => {
-        setStocks((prev) =>
-            prev.map((stock) =>
-                stock.symbol === symbol
-                    ? { ...stock, isInWatchlist: isAdded }
-                    : stock
-            )
-        );
+        setWatchlistSet(prev => {
+            const next = new Set(prev);
+            if (isAdded) next.add(symbol);
+            else next.delete(symbol);
+            return next;
+        });
     };
 
     return (
@@ -144,7 +144,7 @@ export default function SearchCommand({
                                         <WatchlistButton
                                             symbol={stock.symbol}
                                             company={stock.name}
-                                            isInWatchlist={stock.isInWatchlist}
+                                            isInWatchlist={watchlistSet.has(stock.symbol)}
                                             onWatchlistChange={handleWatchlistChange}
                                             type="icon"
                                         />

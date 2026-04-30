@@ -42,9 +42,16 @@ export const addToWatchlist = async (symbol: string, company: string) => {
 
         if (!session?.user) redirect('/sign-in');
 
+        const upperSymbol = symbol.toUpperCase().trim();
+
+        const stockData = await getStocksDetails(upperSymbol);
+        if (!stockData || !stockData.currentPrice) {
+            return { success: false, error: "We couldn't fetch market data for this symbol. This is typically because it's an international stock outside the US market, which isn't supported on our free data tier." };
+        }
+
         const existingItem = await Watchlist.findOne({
             userId: session.user.id,
-            symbol: symbol.toUpperCase(),
+            symbol: upperSymbol,
         });
 
         if (existingItem) {
@@ -53,7 +60,7 @@ export const addToWatchlist = async (symbol: string, company: string) => {
 
         const newItem = new Watchlist({
             userId: session.user.id,
-            symbol: symbol.toUpperCase(),
+            symbol: upperSymbol,
             company: company.trim(),
         });
 

@@ -2,6 +2,7 @@ export const NAV_ITEMS = [
     { href: '/', label: 'Dashboard' },
     { href: '/search', label: 'Search' },
     { href: '/watchlist', label: 'Watchlist' },
+    { href: '/game', label: 'Portfolio Game' },
 ];
 
 // Sign-up form select options
@@ -116,11 +117,10 @@ export const HEATMAP_WIDGET_CONFIG = {
 
 export const TOP_STORIES_WIDGET_CONFIG = {
     displayMode: 'regular',
-    feedMode: 'market',
+    feedMode: 'all_symbols',
     colorTheme: 'dark',
     isTransparent: true,
     locale: 'en',
-    market: 'stock',
     width: '100%',
     height: '600',
 };

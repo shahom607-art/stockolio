@@ -107,6 +107,8 @@ export async function getNews(symbols?: string[]): Promise<MarketNewsArticle[]> 
 
         const maxArticles = 6;
 
+        let collected: MarketNewsArticle[] = [];
+
         if (cleanSymbols.length > 0) {
             const perSymbolArticles: Record<string, RawNewsArticle[]> = {};
 
@@ -123,8 +125,6 @@ export async function getNews(symbols?: string[]): Promise<MarketNewsArticle[]> 
                 })
             );
 
-            const collected: MarketNewsArticle[] = [];
-
             for (let round = 0; round < maxArticles; round++) {
                 for (let i = 0; i < cleanSymbols.length; i++) {
                     const sym = cleanSymbols[i];
@@ -139,34 +139,34 @@ export async function getNews(symbols?: string[]): Promise<MarketNewsArticle[]> 
                 }
                 if (collected.length >= maxArticles) break;
             }
-
-            if (collected.length > 0) {
-                collected.sort((a, b) => (b.datetime || 0) - (a.datetime || 0));
-                return collected.slice(0, maxArticles);
-            }
         }
 
         const generalUrl = `${FINNHUB_BASE_URL}/news?category=general&token=${token}`;
         const general = await fetchJSON<RawNewsArticle[]>(generalUrl, 300);
 
         const seen = new Set<string>();
-        const unique: RawNewsArticle[] = [];
+        for (const art of collected) {
+            seen.add(art.headline);
+        }
+
+        const generalFormatted: MarketNewsArticle[] = [];
 
         for (const art of general || []) {
             if (!validateArticle(art)) continue;
 
-            const key = `${art.id}-${art.url}-${art.headline}`;
+            const key = art.headline!;
             if (seen.has(key)) continue;
 
             seen.add(key);
-            unique.push(art);
+            generalFormatted.push(formatArticle(art, false, undefined, generalFormatted.length));
 
-            if (unique.length >= 20) break;
+            if (generalFormatted.length >= maxArticles) break;
         }
 
-        return unique
-            .slice(0, maxArticles)
-            .map((a, idx) => formatArticle(a, false, undefined, idx));
+        const combined = [...collected, ...generalFormatted];
+        combined.sort((a, b) => (b.datetime || 0) - (a.datetime || 0));
+
+        return combined.slice(0, maxArticles);
     } catch (err) {
         console.error('getNews error:', err);
         return [];

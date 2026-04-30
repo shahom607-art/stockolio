@@ -27,12 +27,16 @@ const ChatWidget = () => {
     const inputRef = useRef<HTMLInputElement>(null);
 
     const scrollToBottom = useCallback(() => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+        setTimeout(() => {
+            messagesEndRef.current?.scrollIntoView({ behavior: "auto" });
+        }, 50);
     }, []);
 
     useEffect(() => {
-        scrollToBottom();
-    }, [messages, scrollToBottom]);
+        if (isOpen) {
+            scrollToBottom();
+        }
+    }, [messages, isOpen, scrollToBottom]);
 
     useEffect(() => {
         if (isOpen && !historyLoaded) {

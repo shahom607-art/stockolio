@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useState, useEffect } from 'react';
 import { useDebounce } from '@/hooks/useDebounce';
 import {
     addToWatchlist,
@@ -18,6 +18,10 @@ const WatchlistButton = ({
                              onWatchlistChange,
                          }: WatchlistButtonProps) => {
     const [added, setAdded] = useState<boolean>(!!isInWatchlist);
+
+    useEffect(() => {
+        setAdded(!!isInWatchlist);
+    }, [isInWatchlist]);
 
     const label = useMemo(() => {
         if (type === 'icon') return '';
@@ -42,13 +46,13 @@ const WatchlistButton = ({
 
                 onWatchlistChange?.(symbol, !added);
             } else {
-                throw new Error('Something went wrong');
+                throw new Error((result as any)?.error || 'Something went wrong');
             }
-        } catch (error) {
+        } catch (error: any) {
             setAdded((prev) => !prev);
 
             toast.error('Action failed', {
-                description: 'Please try again',
+                description: error.message || 'Please try again',
             });
         }
     };
